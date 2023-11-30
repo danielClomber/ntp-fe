@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <HomePage />
-      <Contact />
+      <Contact basicContact={true} />
     </>
   );
 }
