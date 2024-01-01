@@ -7,27 +7,41 @@ import {
   CardContent,
   CardMedia,
   Container,
-  List,
-  ListItem,
   Typography
 } from '@mui/material';
-import bgImage from '../../../../assets/images/ntp-engine2.png';
+import bgImage from '../../../../assets/images/pt.jpg';
 import whoWeAreImage from '../../../../assets/images/who-we-are.png';
 import ourMissionImage from '../../../../assets/images/our-mission.png';
-import rocketLaunchImage from '../../../../assets/images/rocket-launch.jpg';
-import rocketEngineImage from '../../../../assets/images/rocket-engine.png';
+import aiBg1Image from '../../../../assets/images/ai-bg1.png';
 import { styles } from '../../../../assets/styles/styles';
 import { useNavigate } from 'react-router-dom';
-import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import EngineeringIcon from '@mui/icons-material/Engineering';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import HelpIcon from '@mui/icons-material/Help';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import { useState } from 'react';
 
 function HomePage() {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   let navigate = useNavigate();
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
+  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
+
+  const handleNavigation = (path: string | null) => {
+    setAnchorElNav(null);
+    if (path) {
+      const isInternalNavigation = path[0] === '/';
+      if (isInternalNavigation) {
+        navigate(path);
+      } else {
+        window.location.assign(path);
+      }
+    }
   };
 
   return (
@@ -73,9 +87,9 @@ function HomePage() {
               px: 2,
               fontWeight: 'bold'
             }}
-            variant="h3"
+            variant="h4"
           >
-            Pioneering the Future of Space Travel
+            Where AI Meets Your Fitness and Nutrition Goals
           </Typography>
           <Typography
             sx={{
@@ -84,32 +98,38 @@ function HomePage() {
               textAlign: 'center',
               mx: 'auto',
               mt: 2,
-              px: 2,
-              fontWeight: 'bold'
+              px: 2
             }}
             variant="h6"
           >
-            Innovating with Nuclear Thermal Propulsion Technology
+            We blend advanced artificial intelligence with expert fitness and
+            nutrition insights to offer you a uniquely personalized health
+            journey.
           </Typography>
           <Box>
             <Button
-              variant="outlined"
+              variant="contained"
+              color="primary"
               sx={{
                 mt: 4,
-                color: styles.white,
+                fontWeight: 'bold',
                 maxWidth: {
                   sm: '100%',
                   md: '50%'
                 }
               }}
-              onClick={() => handleNavigation('/technology')}
+              onClick={() =>
+                handleNavigation(
+                  'https://train.westrive.com/train/westrive.33742417907b4604'
+                )
+              }
             >
-              Explore The Technology
+              Discover Your Path
             </Button>
           </Box>
         </Box>
       </Container>
-      {/* Technology Overview */}
+      {/* What we offer */}
       <Container
         sx={{
           mt: 6,
@@ -119,15 +139,7 @@ function HomePage() {
         }}
       >
         <Box>
-          <Typography variant="h3">Technology Overview</Typography>
-          <Typography
-            sx={{
-              mt: 2
-            }}
-            variant="h6"
-          >
-            A Leap Forward in Aerospace Engineering
-          </Typography>
+          <Typography variant="h3">What We Offer</Typography>
         </Box>
         <Box
           sx={{
@@ -141,15 +153,13 @@ function HomePage() {
               alignItems: 'center'
             }}
           >
-            <HelpOutlinedIcon fontSize="large" sx={{ mr: 2 }} /> What is NTP?
+            <ImportantDevicesIcon fontSize="large" sx={{ mr: 2 }} /> AI-Crafted
+            Training Routines
           </Typography>
           <Typography variant="body1">
-            Nuclear Thermal Propulsion (NTP) harnesses the immense energy
-            produced by nuclear reactions to heat a propellant, typically
-            hydrogen, to extremely high temperatures before expelling it to
-            produce thrust. This technology offers a significant improvement
-            over traditional chemical rockets, providing higher efficiency and
-            the potential for faster and longer space missions.
+            Experience workout plans designed by AI, based on scientific
+            principles, tailored to your fitness level, goals, and personal
+            preferences.
           </Typography>
           <Box>
             <Button
@@ -161,62 +171,14 @@ function HomePage() {
                   md: '50%'
                 }
               }}
-              onClick={() => handleNavigation('/technology')}
+              onClick={() =>
+                handleNavigation(
+                  'https://train.westrive.com/train/westrive.33742417907b4604'
+                )
+              }
             >
-              Explore The Technology <RocketLaunchIcon sx={{ ml: 1 }} />
+              Get your plan <RocketLaunchIcon sx={{ ml: 1 }} />
             </Button>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            my: 4,
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' }
-          }}
-        >
-          <Box
-            component="img"
-            sx={{
-              my: 'auto',
-              maxWidth: { xs: 'auto', md: 500 },
-              maxHeight: { xs: 'auto', md: 300 }
-            }}
-            alt="Rocket engine"
-            src={rocketEngineImage}
-          />
-          <Box
-            sx={{
-              pl: { xs: 0, md: 5 },
-              mt: { xs: 4, md: 0 }
-            }}
-          >
-            <Typography
-              variant="h4"
-              sx={{
-                display: 'flex',
-                alignItems: 'center'
-              }}
-            >
-              <EmojiObjectsIcon fontSize="large" sx={{ mr: 2 }} /> Why NTP?
-            </Typography>
-            <List sx={{ listStyleType: 'disc' }}>
-              <ListItem sx={{ display: 'list-item' }}>
-                <strong>Higher Efficiency: </strong>NTP engines operate at a
-                higher specific impulse than chemical rockets, meaning they can
-                use fuel more efficiently, enabling longer missions and reduced
-                travel times.
-              </ListItem>
-              <ListItem sx={{ display: 'list-item' }}>
-                <strong>Greater Payload Capacity: </strong>With NTP, spacecraft
-                can carry more payload for the same amount of fuel, or the same
-                payload for less fuel, enhancing mission capabilities.
-              </ListItem>
-              <ListItem sx={{ display: 'list-item' }}>
-                <strong>Extended Mission Durability: </strong>NTP technology is
-                particularly suited for long-duration missions, such as manned
-                missions to Mars and beyond, due to its efficient fuel usage.
-              </ListItem>
-            </List>
           </Box>
         </Box>
         <Box
@@ -231,32 +193,78 @@ function HomePage() {
               alignItems: 'center'
             }}
           >
-            <EngineeringIcon fontSize="large" sx={{ mr: 2 }} /> Our Approach to
-            NTP
+            <RestaurantIcon fontSize="large" sx={{ mr: 2 }} /> Nutrition Plans
           </Typography>
           <Typography variant="body1">
-            Our team is focused on developing NTP engines that are not only
-            efficient and powerful but also safe and reliable. We integrate
-            cutting-edge materials and innovative engineering to create engines
-            that meet the rigorous demands of deep space exploration.
+            Enjoy meal plans crafted by AI, considering your dietary needs,
+            allergies, taste preferences, and nutritional goals. From vegan to
+            keto, we cater to all.
           </Typography>
         </Box>
         <Box
           sx={{
-            mt: 2
+            my: 4
           }}
         >
           <Typography
+            variant="h4"
             sx={{
-              mt: 1
+              display: 'flex',
+              alignItems: 'center'
             }}
-            variant="body1"
           >
-            <strong>
-              Join us on this incredible journey as we push the boundaries of
-              what's possible in space exploration and open new horizons for
-              humanity's venture into the universe.
-            </strong>
+            <EventAvailableIcon fontSize="large" sx={{ mr: 2 }} />
+            Monthly AI Updates for Optimal Adaptation
+          </Typography>
+          <Typography variant="body1">
+            Our AI system updates your fitness and diet plans monthly. This
+            schedule allows your body sufficient time to adjust and respond
+            effectively to the new routines, ensuring a balanced and sustainable
+            approach to your health journey.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            my: 4
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <SmartphoneIcon fontSize="large" sx={{ mr: 2 }} />
+            Comprehensive App for Tracking and Guidance
+          </Typography>
+          <Typography variant="body1">
+            User-friendly app (powered by WeStrive) makes it easy to track your
+            progress and learn exercises. It features a range of instructional
+            videos for your workout routines, ensuring you're always on track
+            and exercising effectively.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            my: 4
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <HelpIcon fontSize="large" sx={{ mr: 2 }} />
+            Got Questions or Need Guidance? Chat with Our Experts!
+          </Typography>
+          <Typography variant="body1">
+            Our dedicated chat service lets you directly connect with our
+            fitness and nutrition experts for personalized advice and support.
+            Accessible via our app or website, ensuring you have the guidance
+            you need for your AI-driven wellness path.
           </Typography>
         </Box>
       </Container>
@@ -274,77 +282,101 @@ function HomePage() {
           mx={'auto'}
           sx={{ textAlign: 'center', fontStyle: 'italic', py: 5 }}
         >
-          "At Clomber, we aim to specialize in the development of Nuclear
-          Thermal Propulsion (NTP) technology, a groundbreaking approach to
-          space travel that promises to revolutionize how we explore the
-          cosmos."
+          "At Fitfai, our vision is to harness the precision of artificial
+          intelligence to craft individualized wellness journeys, making
+          effective training and nutrition accessible to everyone."
         </Typography>
       </Container>
-      {/* About Us */}
       <Container
         sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          mt: 6
+          mt: 10,
+          p: 3,
+          borderRadius: 3,
+          boxShadow: 4
         }}
       >
-        <Typography variant="h3">About Us</Typography>
-        <Container
+        <Box>
+          <Typography variant="h3">How It Works</Typography>
+        </Box>
+        <Box
           sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            my: 6
+            mt: 4
           }}
         >
-          <Card sx={{ maxWidth: 450, mx: { sm: 0, md: 2 }, my: 2 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="250"
-                image={whoWeAreImage}
-                alt="Who we are"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h4" component="div">
-                  Who We Are
-                </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Welcome to Clomber, a startup dedicated to revolutionizing
-                  space exploration. We aim to create a team of skilled
-                  engineers and visionaries that will be the forefront of
-                  developing advanced NTP rocket engines. We believe in a future
-                  where interstellar travel is not just possible but efficient,
-                  sustainable, and accessible.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          <Card sx={{ maxWidth: 450, mx: { sm: 0, md: 2 }, my: 2 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="250"
-                image={ourMissionImage}
-                alt="Our mission"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h4" component="div">
-                  Our Mission
-                </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Our mission is to create highly efficient, reliable, and
-                  sustainable rocket engines that enable longer and faster space
-                  missions, reducing the barriers to deep space exploration. We
-                  are committed to pushing the boundaries of aerospace
-                  technology, fostering innovation, and making interplanetary
-                  travel more accessible and feasible.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Container>
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <AnalyticsIcon fontSize="large" sx={{ mr: 2 }} /> In-Depth Analysis
+          </Typography>
+          <Typography variant="body1">
+            Begin with a comprehensive questionnaire covering your health
+            history, lifestyle, fitness level, and nutritional needs.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            my: 4
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <ImportantDevicesIcon fontSize="large" sx={{ mr: 2 }} /> AI-Powered
+            Customization
+          </Typography>
+          <Typography variant="body1">
+            Our sophisticated AI algorithms process your data to generate a
+            bespoke fitness and nutrition plan.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            my: 4
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <EventAvailableIcon fontSize="large" sx={{ mr: 2 }} />
+            Detailed Plan Delivery
+          </Typography>
+          <Typography variant="body1">
+            Receive a plan in up to 24 hours that includes workout routines and
+            meal plans, all accessible via our user-friendly app.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            my: 4
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <SmartphoneIcon fontSize="large" sx={{ mr: 2 }} />
+            Progress Tracking & Adjustments
+          </Typography>
+          <Typography variant="body1">
+            Track your workouts, meals, and progress; our AI adapts your plan
+            based on real-world performance and feedback.
+          </Typography>
+        </Box>
       </Container>
       {/* image */}
       <Container
@@ -352,12 +384,14 @@ function HomePage() {
         sx={{
           minWidth: '100%',
           minHeight: '700px',
-          backgroundImage: `url(${rocketLaunchImage})`,
+          backgroundImage: `url(${aiBg1Image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'bottom',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          boxShadow: 5,
+          mt: 10
         }}
       >
         <Box
@@ -390,7 +424,7 @@ function HomePage() {
             }}
             variant="h3"
           >
-            Igniting New Horizons
+            Shaping the Future of Fitness
           </Typography>
           <Typography
             sx={{
@@ -404,9 +438,92 @@ function HomePage() {
             }}
             variant="h6"
           >
-            Pioneering the Future with Nuclear Thermal Propulsion
+            AI-Powered Health for a Better You
           </Typography>
+          <Box>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{
+                mt: 4,
+                fontWeight: 'bold'
+              }}
+              onClick={() =>
+                handleNavigation(
+                  'https://train.westrive.com/train/westrive.33742417907b4604'
+                )
+              }
+            >
+              Start Your AI Fitness Adventure
+            </Button>
+          </Box>
         </Box>
+      </Container>
+      {/* About Us */}
+      <Container
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          mt: 10
+        }}
+      >
+        <Typography variant="h3">About Us</Typography>
+        <Container
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            my: 6
+          }}
+        >
+          <Card sx={{ maxWidth: 450, mx: { sm: 0, md: 2 }, my: 2 }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="250"
+                image={whoWeAreImage}
+                alt="Who we are"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h4" component="div">
+                  Who We Are
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  We are a team of passionate innovators, fitness enthusiasts,
+                  nutrition experts, and tech wizards dedicated to
+                  revolutionizing the way individuals approach health and
+                  wellness. Our journey began with a simple yet powerful idea:
+                  to merge the precision of artificial intelligence with the
+                  personal touch of human expertise.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card sx={{ maxWidth: 450, mx: { sm: 0, md: 2 }, my: 2 }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="250"
+                image={ourMissionImage}
+                alt="Our mission"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h4" component="div">
+                  Our Mission
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Our mission is to redefine the approach to health and fitness,
+                  making it more personalized, accessible, and effective for
+                  everyone. We leverage the power of artificial intelligence to
+                  break down barriers in personal wellness, providing tailored
+                  solutions that adapt to each individual's unique needs and
+                  goals.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Container>
       </Container>
     </>
   );

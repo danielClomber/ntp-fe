@@ -1,7 +1,7 @@
 {
   "name": "ntp-fe",
   "version": "0.1.0",
-  "homepage": "https://clomber.com",
+  "homepage": "https://danielFitfai.github.io/fitfai-fe",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -15,6 +15,7 @@
     "@types/node": "^16.11.68",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",

@@ -1,7 +1,7 @@
 import { Avatar, Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { styles } from '../../../../assets/styles/styles';
-import clomberIcon from '../../../../assets/images/logo/clomber-icon.png';
+import clomberIcon from '../../../../assets/images/logo/fitfai-icon.png';
 import './Footer.css';
 
 function Footer() {
@@ -40,7 +40,7 @@ function Footer() {
               textDecoration: 'none'
             }}
           >
-            Clomber
+            Fitfai
           </Typography>
         </Box>
         <Typography variant="body2">

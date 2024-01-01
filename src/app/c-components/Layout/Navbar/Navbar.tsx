@@ -1,5 +1,5 @@
 import './Navbar.css';
-import clomberIcon from '../../../../assets/images/logo/clomber-icon.png';
+import clomberIcon from '../../../../assets/images/logo/fitfai-icon.png';
 
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -93,7 +93,7 @@ function Navbar({
               textTransform: 'none'
             }}
           >
-            Clomber
+            Fitfai
           </Typography>
         </Button>
         {navBarButtons.length !== 0 ? (
@@ -190,7 +190,7 @@ function Navbar({
             textDecoration: 'none'
           }}
         >
-          Clomber
+          Fitfai
         </Typography>
       </Toolbar>
     </Container>
